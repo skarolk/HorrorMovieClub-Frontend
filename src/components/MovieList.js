@@ -1,23 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchMovies } from '../actions';
 import { rateMovie } from '../actions';
 
 class MovieList extends Component {
+  componentDidMount() {
+    this.props.fetchMovies();
+  }
+
   renderMovieList() {
     return this.props.movies.map(movie => {
+      let posterUrl = "https://image.tmdb.org/t/p/w780"
+      let posterUrlSmall = "https://image.tmdb.org/t/p/w500"
       return (
-        <div key={movie.name} className="ratingCard" >
-          <h2>{movie.name}</h2>
-          <div>
-            <img src={movie.poster} alt="" className="posterImage" />
-          </div>
-          <div className="likeDislikeButtons">
-            <button className="ui button primary" onClick={() => this.props.rateMovie(movie)}>
-              Like
-            </button>
-            <button className="ui button primary" onClick={() => this.props.rateMovie(movie)}>
-              Dislike
-            </button>
+        <div key={movie.id} className="movieContainer">
+          <div className="ratingCard" >
+            <h2>{movie.name}</h2>
+            <div>
+              <img src={posterUrlSmall + movie.poster} alt="" className="posterImage" />
+            </div>
+            <div className="likeDislikeButtons">
+              <button className="ui button primary" onClick={() => this.props.rateMovie(movie)}>
+                Like
+              </button>
+              <button className="ui button primary" onClick={() => this.props.rateMovie(movie)}>
+                Dislike
+              </button>
+            </div>
           </div>
         </div>
       )
@@ -26,7 +35,7 @@ class MovieList extends Component {
 
   render() {
     console.log("MovieList props: ")
-    console.log(this.props)
+    console.log(this.props.movies)
     return (
       <div>
         <div className="ratingHeader">
@@ -52,4 +61,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps, { rateMovie })(MovieList);
+export default connect(mapStateToProps, { fetchMovies, rateMovie })(MovieList);

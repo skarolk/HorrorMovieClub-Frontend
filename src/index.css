@@ -14,7 +14,7 @@ code {
 }
 
 .posterImage {
-  max-width: 30%;
+  max-width: 75%;
 }
 
 .ratingCard {
@@ -74,4 +74,23 @@ code {
 .loginButton {
   padding-top: 10%;
   padding-left: 47px;
+}
+
+.movieContainer {
+  display: inline-block;
+  max-width: 33.3%;
+  padding-bottom: 5%;
+}
+
+.avatars {
+  display: inline-block;
+  max-width:25%;
+  padding:2%;
+  border-radius: 50%;
+}
+
+.avatarsHeader {
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }

@@ -17,7 +17,7 @@ const Signup = () => {
           <input type="password" name="password" placeholder="Password" />
           <label htmlFor="password"></label>
         </div>
-        <NavLink to="/ratings">
+        <NavLink to="/avatars">
           <div className="signupButton">
             <input type="submit" value="Sign Up Now!" />
           </div>

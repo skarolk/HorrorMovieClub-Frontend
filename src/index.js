@@ -1,29 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import './index.css';
 
-import MovieList from './components/MovieList';
-import Home from './components/Home';
-import Signup from './components/Signup';
-import Login from './components/Login';
-
+import App from './components/App'
 import reducers from './reducers';
 import * as serviceWorker from './serviceWorker';
 
+const store = createStore(reducers, applyMiddleware(thunk));
+
 ReactDOM.render((
-  <Provider store={createStore(reducers)}>
-    <Router>
-      <React.Fragment>
-        <Route exact path="/" component={Home} />
-        <Route path="/ratings" component={MovieList} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/login" component={Login} />
-      </React.Fragment>
-    </Router>
+  <Provider store={store}>
+    <App />
   </Provider>),
   document.getElementById('root')
 );
