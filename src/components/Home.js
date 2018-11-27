@@ -10,7 +10,7 @@ const Home = () => {
       <div className="homeButtonContainer">
         <NavLink to="/signup">
           <button className="homeButton">
-            Join a Scary Movie Club now!
+            Join a club now!
           </button>
         </NavLink>
       </div>
