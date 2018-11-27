@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -7,9 +8,11 @@ const Home = () => {
         <h1>Scary Movie Club is a like a book club but for Horror Movies</h1>
       </div>
       <div className="homeButtonContainer">
-        <button className="homeButton">
-          Join a Scary Movie Club now!
-        </button>
+        <NavLink to="/signup">
+          <button className="homeButton">
+            Join a Scary Movie Club now!
+          </button>
+        </NavLink>
       </div>
     </div>
   )

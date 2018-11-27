@@ -59,3 +59,19 @@ code {
 .homeButtonContainer {
   padding-top: 100px;
 }
+
+.signupForm {
+  padding-top: 20%;
+  max-width: 150px;
+  margin: 0 auto;
+}
+
+.signupButton {
+  padding-top: 10%;
+  padding-left: 24px;
+}
+
+.loginButton {
+  padding-top: 10%;
+  padding-left: 47px;
+}

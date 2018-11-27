@@ -8,6 +8,9 @@ import './index.css';
 
 import MovieList from './components/MovieList';
 import Home from './components/Home';
+import Signup from './components/Signup';
+import Login from './components/Login';
+
 import reducers from './reducers';
 import * as serviceWorker from './serviceWorker';
 
@@ -17,6 +20,8 @@ ReactDOM.render((
       <React.Fragment>
         <Route exact path="/" component={Home} />
         <Route path="/ratings" component={MovieList} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/login" component={Login} />
       </React.Fragment>
     </Router>
   </Provider>),
