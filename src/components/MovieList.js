@@ -10,7 +10,7 @@ class MovieList extends Component {
 
   renderMovieList() {
     return this.props.movies.map(movie => {
-      let posterUrl = "https://image.tmdb.org/t/p/w780"
+      // let posterUrl = "https://image.tmdb.org/t/p/w780"
       let posterUrlSmall = "https://image.tmdb.org/t/p/w500"
       return (
         <div key={movie.id} className="movieContainer">

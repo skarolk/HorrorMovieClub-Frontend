@@ -1,4 +1,5 @@
 import railsBackend from '../apis/railsBackend';
+export * from './user'
 //Action creator
 export const rateMovie = (movie) => {
   //Returns action
