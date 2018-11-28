@@ -27,7 +27,7 @@ const Signup = () => {
         </div>
         <NavLink to="/avatars">
           <div className="loginButton">
-            <Button type="submit">Login</Button>
+            <Button primary type="submit">Login</Button>
           </div>
         </NavLink>
       </Form>

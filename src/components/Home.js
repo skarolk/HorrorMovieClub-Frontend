@@ -6,12 +6,12 @@ const Home = () => {
   return (
     <div className="homeContainer">
       <div className="homeText">
-        <h1>Scary Movie Club is a like a book club but for Horror Movies</h1>
+        <h1>Scary Movie Club is like a book club for Horror Movies!</h1>
       </div>
       <div className="homeButtonContainer">
         <NavLink to="/signup">
           <div className="homeButton">
-            <Button type="submit">Join a club now!</Button>
+            <Button primary type="submit">Join a club now!</Button>
           </div>
         </NavLink>
       </div>
