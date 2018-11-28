@@ -10,7 +10,7 @@ const Home = () => {
       <div className="homeButtonContainer">
         <NavLink to="/signup">
           <button className="homeButton">
-            Join a club now!
+            Join my club now!
           </button>
         </NavLink>
       </div>

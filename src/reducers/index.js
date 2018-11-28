@@ -12,6 +12,6 @@ const ratedMovieReducer = (ratedMovie = null, action) => {
 
 export default combineReducers({
   movies: moviesReducer,
-  users: usersReducer,
+  usersReducer: usersReducer,
   ratedMovie: ratedMovieReducer
 })

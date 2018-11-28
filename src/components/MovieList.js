@@ -56,7 +56,6 @@ const mapStateToProps = (state) => {
   console.log("mapStateToProps state:")
   console.log(state)
   return {
-    // ratedMovie: state.ratedMovie,
     movies: state.movies,
   };
 }
