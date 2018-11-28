@@ -18,7 +18,7 @@ class SignupForm extends React.Component {
 
   render() {
     return this.props.loggedIn ? (
-      <Redirect to="/ratings" />
+      <Redirect to="/avatars" />
     ) : (
       <div className="signupForm">
         <Form

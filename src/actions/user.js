@@ -32,7 +32,37 @@ export const loginUser = (username, password) => {
 }
 
 export const createUser = (username, email, password) => {
-
+  return (dispatch) => {
+    dispatch({ type: 'CREATE_USER' })
+    fetch('http://localhost:4000/api/v1/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        user: {
+          username: username,
+          email: email,
+          password: password
+        }
+      })
+    })
+    .then(response => {
+      console.log(response)
+      if (response.ok) {
+        return response.json()
+      } else {
+        throw response
+      }
+    })
+    .then(JSONResponse => {
+      console.log('%c INSIDE .THEN', 'color: navy', JSONResponse)
+      localStorage.setItem('jwt', JSONResponse.jwt)
+      dispatch({ type: 'SET_CURRENT_USER', payload: JSONResponse.user })
+    })
+    .catch(r => r.json().then(e => dispatch({ type: 'FAILED_LOGIN', payload: e.message })))
+  }
 }
 
 export const fetchCurrentUser = () => {
