@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Button, Form, Segment, Message } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 
 const Home = () => {
   return (

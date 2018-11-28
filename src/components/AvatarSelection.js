@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { withRouter, Redirect } from 'react-router';
+import { withRouter } from 'react-router';
 import { setUserAvatar } from '../actions/user';
 
 const SelectAvatar = (props) => {
@@ -14,13 +14,13 @@ const SelectAvatar = (props) => {
         <NavLink to="/ratings" onClick={() => setUserAvatar(props.user.id, "https://i.imgur.com/BKjrLyu.jpg")}>
           <img src="https://i.imgur.com/BKjrLyu.jpg" alt="" className="avatars" />
         </NavLink>
-        <NavLink to="/ratings">
+        <NavLink to="/ratings" onClick={() => setUserAvatar(props.user.id, "https://i.imgur.com/6nSnrHi.jpg")}>
           <img src="https://i.imgur.com/6nSnrHi.jpg" alt="" className="avatars" />
         </NavLink>
-        <NavLink to="/ratings">
+        <NavLink to="/ratings" onClick={() => setUserAvatar(props.user.id, "https://i.imgur.com/RTdi6B1.png")}>
           <img src="https://i.imgur.com/RTdi6B1.png" alt="" className="avatars" />
         </NavLink>
-        <NavLink to="/ratings">
+        <NavLink to="/ratings" onClick={() => setUserAvatar(props.user.id, "https://i.imgur.com/lVjf1Yx.jpg")}>
           <img src="https://i.imgur.com/lVjf1Yx.jpg" alt="" className="avatars" />
         </NavLink>
       </div>

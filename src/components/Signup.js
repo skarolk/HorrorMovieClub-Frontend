@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router';
 import { createUser } from '../actions/user';
-import { Button, Form, Segment, Message } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
 
 class SignupForm extends React.Component {
   state = { username: '', email: '', password: '' }
