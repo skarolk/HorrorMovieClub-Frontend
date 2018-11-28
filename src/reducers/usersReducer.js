@@ -16,6 +16,8 @@ const usersReducer = (state=defaultState, action) => {
       return { ...state, authenticatingUser: true }
     case 'AUTHENTICATED_USER':
       return { ...state, authenticatingUser: false }
+    // case 'SET_USER_AVATAR':
+    //   return { ...state, user: action.payload }
     case 'FAILED_LOGIN':
       return {
         ...state,

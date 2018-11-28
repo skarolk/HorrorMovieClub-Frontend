@@ -83,7 +83,32 @@ export const setUserAvatar = (userId, imageUrl) => {
   console.log(userId)
   console.log(imageUrl)
   return (dispatch) => {
-    console.log("hello")
+    // dispatch({ type: 'SET_USER_AVATAR' })
+    fetch(`http://localhost:4000/api/v1/users/${userId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        user: {
+          image: imageUrl,
+        }
+      })
+    })
+    .then(response => {
+      console.log(response)
+      if (response.ok) {
+        return response.json()
+      } else {
+        throw response
+      }
+    })
+    .then(JSONResponse => {
+      console.log('%c INSIDE .THEN', 'color: navy', JSONResponse)
+      localStorage.setItem('jwt', JSONResponse.jwt)
+      dispatch({ type: 'SET_CURRENT_USER', payload: JSONResponse.user })
+    })
   }
 }
 
