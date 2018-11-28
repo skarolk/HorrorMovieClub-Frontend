@@ -1,8 +1,8 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { withRouter, Redirect } from 'react-router'
-import { loginUser } from '../actions/user'
-import { Button, Form, Segment, Message } from 'semantic-ui-react'
+import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter, Redirect } from 'react-router';
+import { loginUser } from '../actions/user';
+import { Button, Form, Segment, Message } from 'semantic-ui-react';
 
 class LoginForm extends React.Component {
   state = { username: '', password: '' }
@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
     return this.props.loggedIn ? (
       <Redirect to="/ratings" />
     ) : (
-      <Segment>
+      <div className="signupForm">
         <Form
           onSubmit={this.handleLoginSubmit}
           size="mini"
@@ -29,9 +29,9 @@ class LoginForm extends React.Component {
           error={this.props.failedLogin}
         >
           <Message error header={this.props.failedLogin ? this.props.error : null} />
-          <Form.Group widths="equal">
+          <div>
             <Form.Input
-              label="username"
+              // label="username"
               placeholder="username"
               name="username"
               onChange={this.handleChange}
@@ -39,16 +39,18 @@ class LoginForm extends React.Component {
             />
             <Form.Input
               type="password"
-              label="password"
+              // label="password"
               placeholder="password"
               name="password"
               onChange={this.handleChange}
               value={this.state.password}
             />
-          </Form.Group>
-          <Button type="submit">Login</Button>
+          </div>
+          <div className="loginButton">
+            <Button type="submit">Login</Button>
+          </div>
         </Form>
-      </Segment>
+      </div>
     )
   }
 }

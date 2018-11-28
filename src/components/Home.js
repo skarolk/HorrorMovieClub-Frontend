@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Button, Form, Segment, Message } from 'semantic-ui-react';
 
 const Home = () => {
   return (
@@ -9,9 +10,9 @@ const Home = () => {
       </div>
       <div className="homeButtonContainer">
         <NavLink to="/signup">
-          <button className="homeButton">
-            Join my club now!
-          </button>
+          <div className="homeButton">
+            <Button type="submit">Join a club now!</Button>
+          </div>
         </NavLink>
       </div>
     </div>
