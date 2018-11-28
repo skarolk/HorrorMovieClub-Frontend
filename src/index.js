@@ -14,8 +14,6 @@ import * as serviceWorker from './serviceWorker';
 
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
 
-console.log('%c INITIAL REDUX STORE', 'color: purple', store.getState())
-
 ReactDOM.render((
   <Provider store={store}>
     <Router>

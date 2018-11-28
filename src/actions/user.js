@@ -79,6 +79,14 @@ export const fetchCurrentUser = () => {
   }
 }
 
+export const setUserAvatar = (userId, imageUrl) => {
+  console.log(userId)
+  console.log(imageUrl)
+  return (dispatch) => {
+    console.log("hello")
+  }
+}
+
 export const setCurrentUser = (userData) => ({
   type: 'SET_CURRENT_USER',
   payload: userData

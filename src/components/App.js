@@ -9,7 +9,6 @@ import SelectAvatar from './AvatarSelection';
 import NotFound from './NotFound';
 
 const App = (props) => {
-  console.log('%c APP Props: ', 'color: firebrick', props)
   return (
     <React.Fragment>
       <Switch>

@@ -35,8 +35,6 @@ class MovieList extends Component {
   }
 
   render() {
-    console.log("MovieList props: ")
-    console.log(this.props.movies)
     return (
       <div>
         <div className="ratingHeader">
@@ -54,8 +52,6 @@ class MovieList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("mapStateToProps state:")
-  console.log(state)
   return {
     // ratedMovie: state.ratedMovie,
     movies: state.movies,
