@@ -31,6 +31,10 @@ export const loginUser = (username, password) => {
   }
 }
 
+export const createUser = (username, email, password) => {
+
+}
+
 export const fetchCurrentUser = () => {
   return (dispatch) => {
     dispatch(authenticatingUser())

@@ -1,38 +1,67 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { withRouter, Redirect } from 'react-router';
+import { createUser } from '../actions/user';
 import { Button, Form, Segment, Message } from 'semantic-ui-react';
 
-const Signup = () => {
-  return (
-    <div className="signupForm">
-      <Form
-        size="mini"
-        key="mini"
-      >
-        <div>
-          <Form.Input
-            placeholder="username"
-            name="username"
-          />
-          <Form.Input
-            type="email"
-            placeholder="email"
-            name="email"
-          />
-          <Form.Input
-            type="password"
-            placeholder="password"
-            name="password"
-          />
-        </div>
-        <NavLink to="/avatars">
+class SignupForm extends React.Component {
+  state = { username: '', email: '', password: '' }
+
+  handleChange = (e, semanticInputData) => {
+    this.setState({ [semanticInputData.name]: semanticInputData.value })
+  }
+
+  handleSignupSubmit = () => {
+    this.props.createUser(this.state.username, this.state.email, this.state.password)
+    this.setState({ username: '', email: '', password: '' })
+  }
+
+  render() {
+    return this.props.loggedIn ? (
+      <Redirect to="/ratings" />
+    ) : (
+      <div className="signupForm">
+        <Form
+          className="ui large form"
+          onSubmit={this.handleSignupSubmit}
+          size="mini"
+          key="mini"
+        >
+          <div>
+            <Form.Input
+              placeholder="username"
+              name="username"
+              onChange={this.handleChange}
+              value={this.state.username}
+            />
+            <Form.Input
+              type="email"
+              placeholder="email"
+              name="email"
+              onChange={this.handleChange}
+              value={this.state.email}
+            />
+            <Form.Input
+              type="password"
+              placeholder="password"
+              name="password"
+              onChange={this.handleChange}
+              value={this.state.password}
+            />
+          </div>
           <div className="loginButton">
             <Button primary type="submit">Login</Button>
           </div>
-        </NavLink>
-      </Form>
-    </div>
-  );
-};
+        </Form>
+      </div>
+    )
+  }
+}
 
-export default Signup;
+const mapStateToProps = (reduxStoreState) => {
+  return {
+    loggedIn: reduxStoreState.usersReducer.loggedIn
+  }
+}
+
+export default withRouter(connect(mapStateToProps, { createUser })(SignupForm));

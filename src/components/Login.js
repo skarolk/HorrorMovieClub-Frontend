@@ -22,6 +22,7 @@ class LoginForm extends React.Component {
     ) : (
       <div className="signupForm">
         <Form
+          className="ui large form"
           onSubmit={this.handleLoginSubmit}
           size="mini"
           key="mini"
@@ -64,16 +65,4 @@ const mapStateToProps = (reduxStoreState) => {
   }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     loginUser: (username, password) => dispatch(loginUser(username, password))
-//   }
-// }
-
-// const connectedToReduxHOC = connect(mapStateToProps, mapDispatchToProps)
-// const connectedToReduxLoginForm = connectedToReduxHOC(LoginForm)
-// const connectedToReduxHOCWithRouterLoginForm = withRouter(connectedToReduxLoginForm)
-//
-// export default connectedToReduxHOCWithRouterLoginForm
-
-export default withRouter(connect(mapStateToProps, { loginUser })(LoginForm))
+export default withRouter(connect(mapStateToProps, { loginUser })(LoginForm));
