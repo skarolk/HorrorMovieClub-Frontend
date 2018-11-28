@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import withAuth from '../hocs/withAuth';
 import { fetchMovies } from '../actions';
 import { rateMovie } from '../actions';
 
@@ -56,8 +57,9 @@ const mapStateToProps = (state) => {
   console.log("mapStateToProps state:")
   console.log(state)
   return {
+    // ratedMovie: state.ratedMovie,
     movies: state.movies,
   };
 }
 
-export default connect(mapStateToProps, { fetchMovies, rateMovie })(MovieList);
+export default withAuth(connect(mapStateToProps, { fetchMovies, rateMovie })(MovieList));
