@@ -4,7 +4,7 @@ const defaultState = {
   authenticatingUser: false,
   failedLogin: false,
   error: null
-}
+} 
 
 const usersReducer = (state=defaultState, action) => {
   if (action.type === 'SET_CURRENT_USER') {

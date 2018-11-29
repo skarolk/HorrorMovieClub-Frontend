@@ -14,4 +14,4 @@ export default combineReducers({
   movies: moviesReducer,
   usersReducer: usersReducer,
   ratedMovie: ratedMovieReducer
-})
+}) 

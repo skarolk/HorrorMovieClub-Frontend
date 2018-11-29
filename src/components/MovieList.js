@@ -21,6 +21,10 @@ class MovieList extends Component {
     }
   }
 
+  rate = (movie, userId, liked) => {
+    this.props.rateMovie(movie, userId, liked)
+  }
+
   createMovie = (movie) => {
     // let posterUrl = "https://image.tmdb.org/t/p/w780"
     let posterUrlSmall = "https://image.tmdb.org/t/p/w500"
@@ -32,10 +36,10 @@ class MovieList extends Component {
             <img src={posterUrlSmall + movie.poster} alt="" className="posterImage" />
           </div>
           <div className="likeDislikeButtons">
-            <button className="ui button primary" onClick={() => this.props.rateMovie(movie)}>
+            <button className="ui button primary" onClick={() => this.rate(movie, this.props.user.id, true)}>
               Like
             </button>
-            <button className="ui button primary" onClick={() => this.props.rateMovie(movie)}>
+            <button className="ui button primary" onClick={() => this.rate(movie, this.props.user.id, false)}>
               Dislike
             </button>
           </div>
@@ -52,6 +56,22 @@ class MovieList extends Component {
       return fifteenMovies.slice(0,3).map(movie => {
         return this.createMovie(movie)
       })
+    } else if (this.state.pagesCompleted === 1) {
+      return fifteenMovies.slice(3,6).map(movie => {
+        return this.createMovie(movie)
+      })
+    } else if (this.state.pagesCompleted === 2) {
+      return fifteenMovies.slice(3,6).map(movie => {
+        return this.createMovie(movie)
+      })
+    } else if (this.state.pagesCompleted === 3) {
+      return fifteenMovies.slice(3,6).map(movie => {
+        return this.createMovie(movie)
+      })
+    } else if (this.state.pagesCompleted === 4) {
+      return fifteenMovies.slice(3,6).map(movie => {
+        return this.createMovie(movie)
+      })
     }
   }
 
@@ -66,7 +86,7 @@ class MovieList extends Component {
           {this.renderMovieList()}
         </div>
         <div className="ratingFooter">
-          <h3>1 of 5</h3>
+          <h3>{this.state.pagesCompleted + 1} of 5</h3>
         </div>
       </div>
     )
@@ -75,7 +95,6 @@ class MovieList extends Component {
 
 const mapStateToProps = (reduxStoreState) => {
   return {
-    // ratedMovie: state.ratedMovie,
     movies: reduxStoreState.movies,
     user: reduxStoreState.usersReducer.user
   };

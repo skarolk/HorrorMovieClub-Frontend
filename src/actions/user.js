@@ -13,7 +13,7 @@ export const loginUser = (username, password) => {
           password: password
         }
       })
-    })
+    }) 
       .then(response => {
         console.log(response)
         if (response.ok) {
