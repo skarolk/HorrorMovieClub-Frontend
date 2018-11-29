@@ -68,7 +68,7 @@ class SignupForm extends React.Component {
 
 const mapStateToProps = (reduxStoreState) => {
   return {
-    loggedIn: reduxStoreState.usersReducer.loggedIn
+    loggedIn: reduxStoreState.userReducer.loggedIn
   }
 }
 

@@ -18,7 +18,7 @@ class LoginForm extends React.Component {
 
   render() {
     return this.props.loggedIn ? (
-      <Redirect to="/ratings" />
+      <Redirect to="/join-club" />
     ) : (
       <div className="signupForm">
         <Form
@@ -58,10 +58,10 @@ class LoginForm extends React.Component {
 
 const mapStateToProps = (reduxStoreState) => {
   return {
-    authenticatingUser: reduxStoreState.usersReducer.authenticatingUser,
-    failedLogin: reduxStoreState.usersReducer.failedLogin,
-    error: reduxStoreState.usersReducer.error,
-    loggedIn: reduxStoreState.usersReducer.loggedIn
+    authenticatingUser: reduxStoreState.userReducer.authenticatingUser,
+    failedLogin: reduxStoreState.userReducer.failedLogin,
+    error: reduxStoreState.userReducer.error,
+    loggedIn: reduxStoreState.userReducer.loggedIn
   }
 }
 

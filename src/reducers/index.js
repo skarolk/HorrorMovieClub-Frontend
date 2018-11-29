@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import moviesReducer from './moviesReducer';
+import userReducer from './userReducer';
 import usersReducer from './usersReducer';
 
 const ratedMovieReducer = (ratedMovie = null, action) => {
@@ -12,6 +13,7 @@ const ratedMovieReducer = (ratedMovie = null, action) => {
 
 export default combineReducers({
   movies: moviesReducer,
-  usersReducer: usersReducer,
-  ratedMovie: ratedMovieReducer
-}) 
+  userReducer: userReducer,
+  ratedMovie: ratedMovieReducer,
+  users: usersReducer
+})

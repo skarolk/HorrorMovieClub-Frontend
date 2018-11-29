@@ -30,6 +30,7 @@ class MovieList extends Component {
   }
 
   createMovie = (movie) => {
+    // For larger posters
     // let posterUrl = "https://image.tmdb.org/t/p/w780"
     let posterUrlSmall = "https://image.tmdb.org/t/p/w500"
     return (
@@ -105,7 +106,7 @@ class MovieList extends Component {
 const mapStateToProps = (reduxStoreState) => {
   return {
     movies: reduxStoreState.movies,
-    user: reduxStoreState.usersReducer.user
+    user: reduxStoreState.userReducer.user
   };
 }
 

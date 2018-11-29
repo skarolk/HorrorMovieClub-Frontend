@@ -23,8 +23,8 @@ const withAuth = (WrappedComponent) => {
 
   const mapStateToProps = (reduxStoreState) => {
     return {
-      loggedIn: reduxStoreState.usersReducer.loggedIn,
-      authenticatingUser: reduxStoreState.usersReducer.authenticatingUser
+      loggedIn: reduxStoreState.userReducer.loggedIn,
+      authenticatingUser: reduxStoreState.userReducer.authenticatingUser
     }
   }
 

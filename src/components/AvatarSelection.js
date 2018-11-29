@@ -32,7 +32,7 @@ const SelectAvatar = (props) => {
 
 const mapStateToProps = (reduxStoreState) => {
   return {
-    user: reduxStoreState.usersReducer.user
+    user: reduxStoreState.userReducer.user
   }
 }
 
