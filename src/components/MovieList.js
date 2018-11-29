@@ -23,6 +23,9 @@ class MovieList extends Component {
 
   rate = (movie, userId, liked) => {
     this.props.rateMovie(movie, userId, liked)
+    this.setState({
+      pagesCompleted: this.state.pagesCompleted + 1
+    })
   }
 
   createMovie = (movie) => {
@@ -39,14 +42,16 @@ class MovieList extends Component {
             <button className="ui button primary" onClick={() => this.rate(movie, this.props.user.id, true)}>
               Like
             </button>
-            <button className="ui button primary" onClick={() => this.rate(movie, this.props.user.id, false)}>
-              Dislike
-            </button>
           </div>
         </div>
       </div>
     )
   }
+
+  // For potential alternate signup flow:
+  // <button className="ui button primary" onClick={() => this.rate(movie, this.props.user.id, false)}>
+  //   Dislike
+  // </button>
 
   renderMovieList() {
     this.shuffle(this.props.movies)
@@ -79,7 +84,7 @@ class MovieList extends Component {
     return (
       <div>
         <div className="ratingHeader">
-          <h1>Rate these Movies!</h1>
+          <h1>Choose your favorite!</h1>
           <UserIcon />
         </div>
         <div>
@@ -87,6 +92,7 @@ class MovieList extends Component {
         </div>
         <div className="ratingFooter">
           <h3>{this.state.pagesCompleted + 1} of 5</h3>
+          <p>This will help us match you with members that like similar horror movies.</p>
         </div>
       </div>
     )

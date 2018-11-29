@@ -13,7 +13,7 @@ export const loginUser = (username, password) => {
           password: password
         }
       })
-    }) 
+    })
       .then(response => {
         console.log(response)
         if (response.ok) {
@@ -105,7 +105,6 @@ export const setUserAvatar = (userId, imageUrl) => {
     })
     .then(userObj => {
       console.log('%c INSIDE .THEN', 'color: navy', userObj)
-      // localStorage.setItem('jwt', JSONResponse.jwt)
       dispatch({ type: 'SET_CURRENT_USER', payload: userObj})
     })
   }

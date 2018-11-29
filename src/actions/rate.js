@@ -1,8 +1,4 @@
 export const rateMovie = (movie, userId, liked) => {
-  console.log(movie.id)
-  console.log(userId)
-  console.log(liked)
-
   return (dispatch) => {
     fetch('http://localhost:4000/api/v1/ratings', {
       method: 'POST',
