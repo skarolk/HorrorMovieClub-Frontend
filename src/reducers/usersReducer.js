@@ -7,6 +7,10 @@ const defaultState = {
 }
 
 const usersReducer = (state=defaultState, action) => {
+  if (action.type === 'SET_CURRENT_USER') {
+    console.log("The old user is", state.user)
+    console.log("The user will be", action.payload)
+  }
   switch (action.type) {
     case 'SET_CURRENT_USER':
       return { ...state, user: action.payload, loggedIn: true, authenticatingUser: false }
@@ -16,8 +20,6 @@ const usersReducer = (state=defaultState, action) => {
       return { ...state, authenticatingUser: true }
     case 'AUTHENTICATED_USER':
       return { ...state, authenticatingUser: false }
-    // case 'SET_USER_AVATAR':
-    //   return { ...state, user: action.payload }
     case 'FAILED_LOGIN':
       return {
         ...state,

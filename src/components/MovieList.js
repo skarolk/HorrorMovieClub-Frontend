@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import withAuth from '../hocs/withAuth';
+import UserIcon from './UserIcon';
 import { fetchMovies } from '../actions';
 import { rateMovie } from '../actions';
 
@@ -39,6 +40,7 @@ class MovieList extends Component {
       <div>
         <div className="ratingHeader">
           <h1>Rate these Movies!</h1>
+          <UserIcon />
         </div>
         <div>
           {this.renderMovieList()}
@@ -51,10 +53,11 @@ class MovieList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (reduxStoreState) => {
   return {
     // ratedMovie: state.ratedMovie,
-    movies: state.movies,
+    movies: reduxStoreState.movies,
+    user: reduxStoreState.usersReducer.user
   };
 }
 
