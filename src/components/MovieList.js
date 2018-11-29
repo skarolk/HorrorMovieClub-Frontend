@@ -11,6 +11,14 @@ class MovieList extends Component {
   }
 
   renderMovieList() {
+    function shuffle(movies) {
+        for (let i = movies.length; i; i--) {
+            let randNum = Math.floor(Math.random() * i);
+            [movies[i - 1], movies[randNum]] = [movies[randNum], movies[i - 1]];
+        }
+    }
+    shuffle(this.props.movies)
+
     return this.props.movies.map(movie => {
       // let posterUrl = "https://image.tmdb.org/t/p/w780"
       let posterUrlSmall = "https://image.tmdb.org/t/p/w500"
