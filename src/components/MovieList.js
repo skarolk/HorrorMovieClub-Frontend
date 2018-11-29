@@ -4,6 +4,7 @@ import withAuth from '../hocs/withAuth';
 import UserIcon from './UserIcon';
 import { fetchMovies } from '../actions';
 import { rateMovie } from '../actions';
+import { Redirect } from 'react-router-dom';
 
 class MovieList extends Component {
   state = {
@@ -77,6 +78,8 @@ class MovieList extends Component {
       return fifteenMovies.slice(3,6).map(movie => {
         return this.createMovie(movie)
       })
+    } else if (this.state.pagesCompleted === 5) {
+      return <Redirect to={'/'} />
     }
   }
 
