@@ -18,8 +18,10 @@ class MovieList extends Component {
         }
     }
     shuffle(this.props.movies)
+    
+    let fifteenMovies =  this.props.movies.slice(0, 15)
 
-    return this.props.movies.map(movie => {
+    return fifteenMovies.map(movie => {
       // let posterUrl = "https://image.tmdb.org/t/p/w780"
       let posterUrlSmall = "https://image.tmdb.org/t/p/w500"
       return (
