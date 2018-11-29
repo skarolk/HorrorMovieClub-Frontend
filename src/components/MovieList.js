@@ -6,43 +6,53 @@ import { fetchMovies } from '../actions';
 import { rateMovie } from '../actions';
 
 class MovieList extends Component {
+  state = {
+    pagesCompleted: 0
+  }
+
   componentDidMount() {
     this.props.fetchMovies();
   }
 
-  renderMovieList() {
-    function shuffle(movies) {
-        for (let i = movies.length; i; i--) {
-            let randNum = Math.floor(Math.random() * i);
-            [movies[i - 1], movies[randNum]] = [movies[randNum], movies[i - 1]];
-        }
+  shuffle = (movies) => {
+    for (let i = movies.length; i; i--) {
+      let randNum = Math.floor(Math.random() * i);
+      [movies[i - 1], movies[randNum]] = [movies[randNum], movies[i - 1]];
     }
-    shuffle(this.props.movies)
-    
-    let fifteenMovies =  this.props.movies.slice(0, 15)
+  }
 
-    return fifteenMovies.map(movie => {
-      // let posterUrl = "https://image.tmdb.org/t/p/w780"
-      let posterUrlSmall = "https://image.tmdb.org/t/p/w500"
-      return (
-        <div key={movie.id} className="movieContainer">
-          <div className="ratingCard" >
-            <h2>{movie.name}</h2>
-            <div>
-              <img src={posterUrlSmall + movie.poster} alt="" className="posterImage" />
-            </div>
-            <div className="likeDislikeButtons">
-              <button className="ui button primary" onClick={() => this.props.rateMovie(movie)}>
-                Like
-              </button>
-              <button className="ui button primary" onClick={() => this.props.rateMovie(movie)}>
-                Dislike
-              </button>
-            </div>
+  createMovie = (movie) => {
+    // let posterUrl = "https://image.tmdb.org/t/p/w780"
+    let posterUrlSmall = "https://image.tmdb.org/t/p/w500"
+    return (
+      <div key={movie.id} className="movieContainer">
+        <div className="ratingCard" >
+          <h2>{movie.name}</h2>
+          <div>
+            <img src={posterUrlSmall + movie.poster} alt="" className="posterImage" />
+          </div>
+          <div className="likeDislikeButtons">
+            <button className="ui button primary" onClick={() => this.props.rateMovie(movie)}>
+              Like
+            </button>
+            <button className="ui button primary" onClick={() => this.props.rateMovie(movie)}>
+              Dislike
+            </button>
           </div>
         </div>
-      )
-    })
+      </div>
+    )
+  }
+
+  renderMovieList() {
+    this.shuffle(this.props.movies)
+    let fifteenMovies =  this.props.movies.slice(0, 15)
+
+    if (this.state.pagesCompleted === 0) {
+      return fifteenMovies.slice(0,3).map(movie => {
+        return this.createMovie(movie)
+      })
+    }
   }
 
   render() {
