@@ -19,7 +19,7 @@ class SignupForm extends React.Component {
 
   render() {
     return this.props.loggedIn ? (
-      <Redirect to="/avatars" />
+      <Redirect to="/select-avatar" />
     ) : (
       <React.Fragment>
         <div className="signupForm">

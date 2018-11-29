@@ -79,7 +79,7 @@ class MovieList extends Component {
         return this.createMovie(movie)
       })
     } else if (this.state.pagesCompleted === 5) {
-      return <Redirect to={'/'} />
+      return <Redirect to={'/join-club'} />
     }
   }
 

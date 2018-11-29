@@ -80,8 +80,6 @@ export const fetchCurrentUser = () => {
 }
 
 export const setUserAvatar = (userId, imageUrl) => {
-  console.log(userId)
-  console.log(imageUrl)
   return (dispatch) => {
     fetch(`http://localhost:4000/api/v1/users/${userId}`, {
       method: 'PATCH',

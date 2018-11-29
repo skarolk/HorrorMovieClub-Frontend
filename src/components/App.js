@@ -7,6 +7,7 @@ import Signup from './Signup';
 import LoginForm from './Login';
 import SelectAvatar from './AvatarSelection';
 import NotFound from './NotFound';
+import JoinClubPage from './JoinClubPage';
 
 const App = (props) => {
   return (
@@ -16,7 +17,8 @@ const App = (props) => {
         <Route path="/ratings" component={MovieList} />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={LoginForm} />
-        <Route path="/avatars" component={SelectAvatar} />
+        <Route path="/select-avatar" component={SelectAvatar} />
+        <Route path="/join-club" component={JoinClubPage} />
         <Route component={NotFound} />
       </Switch>
     </React.Fragment>
