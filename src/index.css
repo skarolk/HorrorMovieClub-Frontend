@@ -83,6 +83,11 @@ code {
   padding-left: 24px;
 }
 
+.signupLoginLink {
+  text-align: center;
+  padding-top: 15%;
+}
+
 .loginButton {
   padding-top: 10%;
   padding-left: 37px;

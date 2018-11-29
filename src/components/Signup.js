@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router';
 import { createUser } from '../actions/user';
 import { Button, Form } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 class SignupForm extends React.Component {
   state = { username: '', email: '', password: '' }
@@ -20,40 +21,47 @@ class SignupForm extends React.Component {
     return this.props.loggedIn ? (
       <Redirect to="/avatars" />
     ) : (
-      <div className="signupForm">
-        <Form
-          className="ui large form"
-          onSubmit={this.handleSignupSubmit}
-          size="mini"
-          key="mini"
-        >
-          <div>
-            <Form.Input
-              placeholder="username"
-              name="username"
-              onChange={this.handleChange}
-              value={this.state.username}
-            />
-            <Form.Input
-              type="email"
-              placeholder="email"
-              name="email"
-              onChange={this.handleChange}
-              value={this.state.email}
-            />
-            <Form.Input
-              type="password"
-              placeholder="password"
-              name="password"
-              onChange={this.handleChange}
-              value={this.state.password}
-            />
-          </div>
-          <div className="loginButton">
-            <Button primary type="submit">Login</Button>
-          </div>
-        </Form>
-      </div>
+      <React.Fragment>
+        <div className="signupForm">
+          <Form
+            className="ui large form"
+            onSubmit={this.handleSignupSubmit}
+            size="mini"
+            key="mini"
+          >
+            <div>
+              <Form.Input
+                placeholder="username"
+                name="username"
+                onChange={this.handleChange}
+                value={this.state.username}
+              />
+              <Form.Input
+                type="email"
+                placeholder="email"
+                name="email"
+                onChange={this.handleChange}
+                value={this.state.email}
+              />
+              <Form.Input
+                type="password"
+                placeholder="password"
+                name="password"
+                onChange={this.handleChange}
+                value={this.state.password}
+              />
+            </div>
+            <div className="loginButton">
+              <Button primary type="submit">Signup</Button>
+            </div>
+          </Form>
+        </div>
+        <div className="signupLoginLink">
+          <NavLink to={'/login'} >
+            <h4>Already have an account? Login.</h4>
+          </NavLink>
+        </div>
+      </React.Fragment>
     )
   }
 }
