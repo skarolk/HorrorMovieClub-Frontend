@@ -12,7 +12,7 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchMovies();
+    this.shuffle(this.props.fetchMovies());
   }
 
   shuffle = (movies) => {
@@ -56,27 +56,24 @@ class MovieList extends Component {
   // </button>
 
   renderMovieList() {
-    this.shuffle(this.props.movies)
-    let fifteenMovies =  this.props.movies.slice(0, 15)
-
     if (this.state.pagesCompleted === 0) {
-      return fifteenMovies.slice(0,3).map(movie => {
+      return this.props.movies.slice(0,3).map(movie => {
         return this.createMovie(movie)
       })
     } else if (this.state.pagesCompleted === 1) {
-      return fifteenMovies.slice(3,6).map(movie => {
+      return this.props.movies.slice(3,6).map(movie => {
         return this.createMovie(movie)
       })
     } else if (this.state.pagesCompleted === 2) {
-      return fifteenMovies.slice(3,6).map(movie => {
+      return this.props.movies.slice(6,9).map(movie => {
         return this.createMovie(movie)
       })
     } else if (this.state.pagesCompleted === 3) {
-      return fifteenMovies.slice(3,6).map(movie => {
+      return this.props.movies.slice(9,12).map(movie => {
         return this.createMovie(movie)
       })
     } else if (this.state.pagesCompleted === 4) {
-      return fifteenMovies.slice(3,6).map(movie => {
+      return this.props.movies.slice(12,15).map(movie => {
         return this.createMovie(movie)
       })
     } else if (this.state.pagesCompleted === 5) {

@@ -13,7 +13,6 @@ class JoinClubPage extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="clubContainer">
         <UserIcon />
