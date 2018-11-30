@@ -3,36 +3,26 @@ import { API_ROOT, HEADERS } from '../constants';
 
 class NewClubForm extends React.Component {
   state = {
-    title: ''
-  };
-
-  handleChange = e => {
-    this.setState({ title: e.target.value });
+    movie_id: 5,
+    active: true
   };
 
   handleSubmit = e => {
-    e.preventDefault()
+    // e.preventDefault()
     fetch(`${API_ROOT}/clubs`, {
       method: 'POST',
       headers: HEADERS,
       body: JSON.stringify(this.state)
     });
-    this.setState({ title: '' });
+    // this.setState({ movieId: null });
   };
 
   render = () => {
     return (
       <div className="newConversationForm">
-        <form onSubmit={this.handleSubmit}>
-          <label>New Conversation:</label>
-          <br />
-          <input
-            type="text"
-            value={this.state.title}
-            onChange={this.handleChange}
-          />
-          <input type="submit" />
-        </form>
+        <button onClick={this.handleSubmit}>
+          Create
+        </button>
       </div>
     );
   };

@@ -2,13 +2,13 @@ import React from 'react';
 import NewMessageForm from './NewMessageForm';
 
 const ChatArea = ({
-  conversation: { id, title, messages },
+  club: { id, messages },
 }) => {
   return (
     <div className="messagesArea">
-      <h2>{title}</h2>
+      <h2>{id}</h2>
       <ul>{orderedMessages(messages)}</ul>
-      <NewMessageForm conversation_id={id} />
+      <NewMessageForm club_id={id} />
     </div>
   );
 };

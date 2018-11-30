@@ -4,11 +4,12 @@ import { API_ROOT, HEADERS } from '../constants';
 class NewMessageForm extends React.Component {
   state = {
     text: '',
-    conversation_id: this.props.conversation_id
+    club_id: this.props.club_id,
+    user_id: 1
   };
 
   componentWillReceiveProps = nextProps => {
-    this.setState({ conversation_id: nextProps.conversation_id });
+    this.setState({ club_id: nextProps.club_id });
   };
 
   handleChange = e => {

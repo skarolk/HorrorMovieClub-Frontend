@@ -7,60 +7,60 @@ import Cable from './Cable';
 
 class ClubsList extends React.Component {
   state = {
-    conversations: [],
-    activeConversation: null
+    clubs: [],
+    activeClub: null
   };
 
   componentDidMount = () => {
     fetch(`${API_ROOT}/clubs`)
       .then(res => res.json())
-      .then(conversations => this.setState({ conversations }));
+      .then(clubs => this.setState({ clubs }));
   };
 
   handleClick = id => {
-    this.setState({ activeConversation: id });
+    this.setState({ activeClub: id });
   };
 
-  handleReceivedConversation = response => {
-    const { conversation } = response;
+  handleReceivedClub = response => {
+    const { club } = response;
     this.setState({
-      conversations: [...this.state.conversations, conversation]
+      clubs: [...this.state.clubs, club]
     });
   };
 
   handleReceivedMessage = response => {
     const { message } = response;
-    const conversations = [...this.state.conversations];
-    const conversation = conversations.find(
-      conversation => conversation.id === message.conversation_id
+    const clubs = [...this.state.clubs];
+    const club = clubs.find(
+      club => club.id === message.club_id
     );
-    conversation.messages = [...conversation.messages, message];
-    this.setState({ conversations });
+    club.messages = [...club.messages, message];
+    this.setState({ clubs });
   };
 
   render = () => {
-    console.log(this.state.conversations)
-    const { conversations, activeConversation } = this.state;
+    console.log(this.state.clubs)
+    const { clubs, activeClub } = this.state;
     return (
-      <div className="conversationsList">
+      <div className="clubsList">
         <ActionCable
-          channel={{ channel: 'ConversationsChannel' }}
-          onReceived={this.handleReceivedConversation}
+          channel={{ channel: 'ClubsChannel' }}
+          onReceived={this.handleReceivedClub}
         />
-        {this.state.conversations.length ? (
+        {this.state.clubs.length ? (
           <Cable
-            conversations={conversations}
+            clubs={clubs}
             handleReceivedMessage={this.handleReceivedMessage}
           />
         ) : null}
-        <h2>Conversations</h2>
-        <ul>{mapConversations(conversations, this.handleClick)}</ul>
+        <h2>Clubs</h2>
+        <ul>{mapClubs(clubs, this.handleClick)}</ul>
         <NewClubForm />
-        {activeConversation ? (
+        {activeClub ? (
           <ChatArea
-            conversation={findActiveConversation(
-              conversations,
-              activeConversation
+            club={findActiveClub(
+              clubs,
+              activeClub
             )}
           />
         ) : null}
@@ -73,17 +73,17 @@ export default ClubsList;
 
 // helpers
 
-const findActiveConversation = (conversations, activeConversation) => {
-  return conversations.find(
-    conversation => conversation.id === activeConversation
+const findActiveClub = (clubs, activeClub) => {
+  return clubs.find(
+    club => club.id === activeClub
   );
 };
 
-const mapConversations = (conversations, handleClick) => {
-  return conversations.map(conversation => {
+const mapClubs = (clubs, handleClick) => {
+  return clubs.map(club => {
     return (
-      <li key={conversation.id} onClick={() => handleClick(conversation.id)}>
-        {conversation.title}
+      <li key={club.id} onClick={() => handleClick(club.id)}>
+        {club.id}
       </li>
     );
   });
