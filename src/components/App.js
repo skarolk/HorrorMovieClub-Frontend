@@ -8,6 +8,7 @@ import LoginForm from './Login';
 import SelectAvatar from './AvatarSelection';
 import NotFound from './NotFound';
 import JoinClubPage from './JoinClubPage';
+import ClubsList from './ClubsList';
 
 const App = (props) => {
   return (
@@ -19,6 +20,7 @@ const App = (props) => {
         <Route path="/login" component={LoginForm} />
         <Route path="/select-avatar" component={SelectAvatar} />
         <Route path="/join-club" component={JoinClubPage} />
+        <Route path="/my-weekly-club" component={ClubsList} />
         <Route component={NotFound} />
       </Switch>
     </React.Fragment>
