@@ -20,7 +20,7 @@ class JoinClubPage extends Component {
           <h1>Ready to join your club for the week? Watch and discuss a movie with five other horror fans!</h1>
         </div>
         <div className="homeButtonContainer">
-          <NavLink to="/">
+          <NavLink to="/my-weekly-club">
             <div className="homeButton">
               <Button primary type="submit">Join Club</Button>
             </div>

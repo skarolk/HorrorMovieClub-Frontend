@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { ActionCable } from 'react-actioncable-provider';
 import { API_ROOT } from '../constants';
 import NewClubForm from './NewClubForm';
 import ChatArea from './ChatArea';
 import Cable from './Cable';
+import withAuth from '../hocs/withAuth';
+import UserIcon from './UserIcon';
 
 class ClubsList extends React.Component {
   state = {
@@ -69,7 +72,7 @@ class ClubsList extends React.Component {
   };
 }
 
-export default ClubsList;
+// export default ClubsList;
 
 // helpers
 
@@ -88,3 +91,12 @@ const mapClubs = (clubs, handleClick) => {
     );
   });
 };
+
+const mapStateToProps = (reduxStoreState) => {
+  return {
+    movies: reduxStoreState.movies,
+    user: reduxStoreState.userReducer.user
+  };
+}
+
+export default withAuth(connect(mapStateToProps)(ClubsList));

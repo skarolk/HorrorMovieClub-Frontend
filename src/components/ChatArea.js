@@ -5,9 +5,10 @@ const ChatArea = ({
   club: { id, messages },
 }) => {
   return (
-    <div className="messagesArea">
-      <h2>{id}</h2>
-      <ul>{orderedMessages(messages)}</ul>
+    <div className="chatWindow">
+      <div className="messagesArea">
+        <div>{orderedMessages(messages)}</div>
+      </div>
       <NewMessageForm club_id={id} />
     </div>
   );
@@ -22,6 +23,6 @@ const orderedMessages = messages => {
     (a, b) => new Date(a.created_at) - new Date(b.created_at)
   );
   return sortedMessages.map(message => {
-    return <li key={message.id}>{message.text}</li>;
+    return <p key={message.id}>{message.text}</p>;
   });
 };
