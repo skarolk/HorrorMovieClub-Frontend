@@ -24,10 +24,10 @@ code {
 
 .posterChatImage {
   max-width: 35%;
+  max-height: 83.5%;
   border-color: white;
   border-style: solid;
   border-width: 11px;
-  z-index: -5;
   position: fixed;
   left: 5%;
   top: 12%;
@@ -159,7 +159,6 @@ code {
 }
 
 .chatWindow {
-  z-index: 10;
   background-color: rgba(0,0,0,.4);
   min-width: 50%;
   max-height: 56.9%;
@@ -179,7 +178,6 @@ code {
 }
 
 .newMessageForm  {
-  z-index: 15;
   /* background-color: green; */
   position: relative;
   top: 90%;
