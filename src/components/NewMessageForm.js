@@ -5,7 +5,7 @@ class NewMessageForm extends React.Component {
   state = {
     text: '',
     club_id: this.props.club_id,
-    user_id: 1
+    user_id: this.props.user.id
   };
 
   componentWillReceiveProps = nextProps => {

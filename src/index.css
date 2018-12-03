@@ -166,15 +166,17 @@ code {
   position: fixed;
   top: 30%;
   right: 5%;
-  padding: 15px;
+  padding: 25px;
   padding-left: 30px;
   border-radius: 20px;
 }
 
 .messagesArea {
-  max-height: 500px;
-  min-height: 500px;
+  max-height: 470px;
+  min-height: 470px;
   overflow-y: auto;
+  color: white;
+  font-weight: bold;
 }
 
 .newMessageForm  {
@@ -193,6 +195,6 @@ code {
 
 .clubHeader {
   text-align: center;
-  padding-top: 3%;
+  padding-top: 1.5%;
   color: white;
 }

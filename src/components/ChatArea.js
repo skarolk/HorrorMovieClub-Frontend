@@ -1,28 +1,31 @@
 import React from 'react';
 import NewMessageForm from './NewMessageForm';
 
-const ChatArea = ({
-  club: { id, messages },
-}) => {
+const ChatArea = (props) => {
+  const orderedMessages = messages => {
+    const sortedMessages = messages.sort(
+      (a, b) => new Date(a.created_at) - new Date(b.created_at)
+    );
+    return sortedMessages.map(message => {
+      let user = findUser(message)
+      return <p key={message.id}>{user.username}: {message.text}</p>;
+    });
+  };
+
+  const findUser = message => {
+    return props.users.find(
+       user => user.id === message.user_id
+    )
+  }
+
   return (
     <div className="chatWindow">
       <div className="messagesArea">
-        <div>{orderedMessages(messages)}</div>
+        <div>{orderedMessages(props.club.messages)}</div>
       </div>
-      <NewMessageForm club_id={id} />
+      <NewMessageForm user={props.user} club_id={props.club.id} />
     </div>
   );
 };
 
 export default ChatArea;
-
-// helpers
-
-const orderedMessages = messages => {
-  const sortedMessages = messages.sort(
-    (a, b) => new Date(a.created_at) - new Date(b.created_at)
-  );
-  return sortedMessages.map(message => {
-    return <p key={message.id}>{message.text}</p>;
-  });
-};

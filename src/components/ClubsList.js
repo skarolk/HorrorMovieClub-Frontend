@@ -64,6 +64,7 @@ class ClubsList extends React.Component {
     const { clubs, activeClub } = this.state;
     return (
       <div>
+        <UserIcon />
         <ActionCable
           channel={{ channel: 'ClubsChannel' }}
           onReceived={this.handleReceivedClub}
@@ -82,6 +83,8 @@ class ClubsList extends React.Component {
         ) : null }
         {activeClub ? (
           <ChatArea
+            users={this.props.users}
+            user={this.props.user}
             club={findActiveClub(
               clubs,
               activeClub
@@ -120,7 +123,8 @@ const mapClubs = (clubs, handleClick) => {
 const mapStateToProps = (reduxStoreState) => {
   return {
     movies: reduxStoreState.movies,
-    user: reduxStoreState.userReducer.user
+    user: reduxStoreState.userReducer.user,
+    users: reduxStoreState.users
   };
 }
 
