@@ -41,11 +41,29 @@ class ClubsList extends React.Component {
     this.setState({ clubs });
   };
 
+  findMovie = () => {
+    let targetClub = findActiveClub(this.state.clubs, this.state.activeClub)
+    return this.props.movies.find(
+       movie => movie.id === targetClub.movie_id
+    )
+  }
+
+  findMovieName = () => {
+    let targetMovie = this.findMovie()
+    return targetMovie.name
+  }
+
+  findPoster = () => {
+    let targetMovie = this.findMovie()
+    return targetMovie.poster
+  };
+
   render = () => {
     console.log(this.state.clubs)
+    let posterUrl = "https://image.tmdb.org/t/p/w780"
     const { clubs, activeClub } = this.state;
     return (
-      <div className="clubsList">
+      <div>
         <ActionCable
           channel={{ channel: 'ClubsChannel' }}
           onReceived={this.handleReceivedClub}
@@ -56,9 +74,12 @@ class ClubsList extends React.Component {
             handleReceivedMessage={this.handleReceivedMessage}
           />
         ) : null}
-        <h2>Clubs</h2>
-        <ul>{mapClubs(clubs, this.handleClick)}</ul>
-        <NewClubForm />
+        {activeClub ? (
+          <h1 className="clubHeader">Your movie for this week is  {this.findMovieName()}!</h1>
+        ) : null }
+        {activeClub ? (
+          <img src={posterUrl + this.findPoster()} alt="" className="posterChatImage" />
+        ) : null }
         {activeClub ? (
           <ChatArea
             club={findActiveClub(
@@ -67,6 +88,10 @@ class ClubsList extends React.Component {
             )}
           />
         ) : null}
+        <div className="clubList">
+          <p>{mapClubs(clubs, this.handleClick)}</p>
+          <NewClubForm />
+        </div>
       </div>
     );
   };
