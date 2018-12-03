@@ -18,7 +18,6 @@ const ClubAvatars = (props) => {
     })
   }
 
-  console.log(getClubMembers())
   return (
     <div className="avatarContainer">
       {renderAvatars()}

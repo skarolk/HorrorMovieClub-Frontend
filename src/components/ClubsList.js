@@ -60,7 +60,6 @@ class ClubsList extends React.Component {
   };
 
   render = () => {
-    console.log(this.state.clubs)
     let posterUrl = "https://image.tmdb.org/t/p/w780"
     const { clubs, activeClub } = this.state;
     return (
