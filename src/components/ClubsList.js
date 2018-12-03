@@ -5,6 +5,7 @@ import { API_ROOT } from '../constants';
 import NewClubForm from './NewClubForm';
 import ChatArea from './ChatArea';
 import Cable from './Cable';
+import ClubAvatars from './ClubAvatars';
 import withAuth from '../hocs/withAuth';
 import UserIcon from './UserIcon';
 
@@ -76,20 +77,26 @@ class ClubsList extends React.Component {
           />
         ) : null}
         {activeClub ? (
-          <h1 className="clubHeader">Your movie for this week is  {this.findMovieName()}!</h1>
-        ) : null }
-        {activeClub ? (
-          <img src={posterUrl + this.findPoster()} alt="" className="posterChatImage" />
-        ) : null }
-        {activeClub ? (
-          <ChatArea
-            users={this.props.users}
-            user={this.props.user}
-            club={findActiveClub(
-              clubs,
-              activeClub
-            )}
-          />
+          <React.Fragment>
+            <h1 className="clubHeader">Your movie for this week is  {this.findMovieName()}!</h1>
+            <img src={posterUrl + this.findPoster()} alt="" className="posterChatImage" />
+            <ClubAvatars
+              users={this.props.users}
+              user={this.props.user}
+              club={findActiveClub(
+                clubs,
+                activeClub
+              )}
+            />
+            <ChatArea
+              users={this.props.users}
+              user={this.props.user}
+              club={findActiveClub(
+                clubs,
+                activeClub
+              )}
+            />
+          </React.Fragment>
         ) : null}
         <div className="clubList">
           <p>{mapClubs(clubs, this.handleClick)}</p>
@@ -99,10 +106,6 @@ class ClubsList extends React.Component {
     );
   };
 }
-
-// export default ClubsList;
-
-// helpers
 
 const findActiveClub = (clubs, activeClub) => {
   return clubs.find(
