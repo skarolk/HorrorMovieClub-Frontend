@@ -8,13 +8,11 @@ class NewClubForm extends React.Component {
   };
 
   handleSubmit = e => {
-    // e.preventDefault()
     fetch(`${API_ROOT}/clubs`, {
       method: 'POST',
       headers: HEADERS,
       body: JSON.stringify(this.state)
     });
-    // this.setState({ movieId: null });
   };
 
   render = () => {
