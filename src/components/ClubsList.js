@@ -18,7 +18,7 @@ class ClubsList extends React.Component {
   componentDidMount = () => {
     fetch(`${API_ROOT}/clubs`)
       .then(res => res.json())
-      .then(clubs => this.setState({ clubs }));
+      .then(clubs => this.setState({ clubs: clubs, activeClub: this.props.user.club_id }));
   };
 
   handleClick = id => {
@@ -43,7 +43,7 @@ class ClubsList extends React.Component {
   };
 
   findMovie = () => {
-    let targetClub = findActiveClub(this.state.clubs, this.state.activeClub)
+    let targetClub = findActiveClub(this.state.clubs, this.props.user.club_id)
     return this.props.movies.find(
        movie => movie.id === targetClub.movie_id
     )
@@ -59,7 +59,14 @@ class ClubsList extends React.Component {
     return targetMovie.poster
   };
 
+  findActiveClub = (clubs, activeClub) => {
+    return clubs.find(
+      club => club.id === activeClub
+    );
+  };
+
   render = () => {
+    console.log(this.props.user.club_id)
     let posterUrl = "https://image.tmdb.org/t/p/w780"
     const { clubs, activeClub } = this.state;
     return (

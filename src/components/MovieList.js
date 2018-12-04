@@ -13,7 +13,6 @@ class MovieList extends Component {
 
   componentDidMount() {
     this.props.fetchMovies();
-    // this.shuffle(this.props.fetchMovies());
   }
 
   shuffle = (movies) => {
@@ -50,11 +49,6 @@ class MovieList extends Component {
       </div>
     )
   }
-
-  // For potential alternate signup flow:
-  // <button className="ui button primary" onClick={() => this.rate(movie, this.props.user.id, false)}>
-  //   Dislike
-  // </button>
 
   renderMovieList() {
     this.shuffle(this.props.movies)
