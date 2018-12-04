@@ -41,7 +41,7 @@ class JoinClubPage extends Component {
           matched: true
         })
       });
-    } else {
+    } else if ( this.numberOfUsersInLastClub(this.props.clubs.length) < 6 && this.props.user.matched === null ) {
       fetch(`${API_ROOT}/users/${this.props.user.id}`, {
         method: 'PATCH',
         headers: HEADERS,
