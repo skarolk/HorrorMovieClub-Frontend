@@ -44,7 +44,6 @@ class ClubsList extends React.Component {
 
   findMovie = () => {
     let targetClub = findActiveClub(this.state.clubs, this.props.user.club_id)
-    console.log(targetClub)
     return this.props.movies.find(
        movie => movie.id === targetClub.movie_id
     )
