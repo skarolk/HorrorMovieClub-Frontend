@@ -18,7 +18,6 @@ class JoinClubPage extends Component {
 
   numberOfUsersInLastClub = (clubId) => {
     let users = this.props.users.filter( user => user.club_id === clubId)
-    console.log(users.length)
     return users.length
   }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ClubAvatars = (props) => {
+  
   const getClubMembers = () => {
     let targetClub = props.club.id
     return props.users.filter(user => user.club_id === targetClub)

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { ActionCable } from 'react-actioncable-provider';
 import { API_ROOT } from '../constants';
-import NewClubForm from './NewClubForm';
+// import NewClubForm from './NewClubForm';
 import ChatArea from './ChatArea';
 import Cable from './Cable';
 import ClubAvatars from './ClubAvatars';
@@ -119,15 +119,15 @@ const findActiveClub = (clubs, activeClub) => {
   );
 };
 
-const mapClubs = (clubs, handleClick) => {
-  return clubs.map(club => {
-    return (
-      <li key={club.id} onClick={() => handleClick(club.id)}>
-        {club.id}
-      </li>
-    );
-  });
-};
+// const mapClubs = (clubs, handleClick) => {
+//   return clubs.map(club => {
+//     return (
+//       <li key={club.id} onClick={() => handleClick(club.id)}>
+//         {club.id}
+//       </li>
+//     );
+//   });
+// };
 
 const mapStateToProps = (reduxStoreState) => {
   return {
