@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 import withAuth from '../hocs/withAuth';
 import { NavLink, Redirect } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
-import { fetchMovies, fetchUsers } from '../actions';
+import { fetchMovies, fetchUsers, fetchClubs } from '../actions';
 import UserIcon from './UserIcon';
 
 class JoinClubPage extends Component {
+
   componentDidMount() {
     this.props.fetchUsers()
     this.props.fetchMovies()
+    this.props.fetchClubs()
   }
 
   render() {
@@ -35,8 +37,9 @@ const mapStateToProps = (reduxStoreState) => {
   return {
     movies: reduxStoreState.movies,
     user: reduxStoreState.userReducer.user,
-    users: reduxStoreState.users
+    users: reduxStoreState.users,
+    clubs: reduxStoreState.clubs
   };
 }
 
-export default withAuth(connect(mapStateToProps, { fetchMovies, fetchUsers })(JoinClubPage));
+export default withAuth(connect(mapStateToProps, { fetchMovies, fetchUsers, fetchClubs })(JoinClubPage));

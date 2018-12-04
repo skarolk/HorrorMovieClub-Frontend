@@ -147,10 +147,10 @@ code {
 }
 
 .userIcon {
-  max-width: 80px;
+  max-width: 60px;
   z-index: 10;
   position: fixed;
-  top: 2%;
+  top: 3%;
   right: 5%;
   border-radius: 50%;
   border-color: white;

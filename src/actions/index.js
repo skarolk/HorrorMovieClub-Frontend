@@ -13,3 +13,9 @@ export const fetchUsers = () => async dispatch => {
 
   dispatch({ type: 'FETCH_USERS', payload: response.data })
 };
+
+export const fetchClubs = () => async dispatch => {
+  const response = await railsBackend.get('/clubs');
+
+  dispatch({ type: 'FETCH_CLUBS', payload: response.data })
+};
