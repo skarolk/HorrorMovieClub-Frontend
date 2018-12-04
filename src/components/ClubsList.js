@@ -22,7 +22,7 @@ class ClubsList extends React.Component {
   };
 
   handleClick = id => {
-    this.setState({ activeClub: id });
+    this.setState({ activeClub: id }, () => console.log(this.state.activeClub));
   };
 
   handleReceivedClub = response => {
@@ -44,6 +44,7 @@ class ClubsList extends React.Component {
 
   findMovie = () => {
     let targetClub = findActiveClub(this.state.clubs, this.props.user.club_id)
+    console.log(targetClub)
     return this.props.movies.find(
        movie => movie.id === targetClub.movie_id
     )
@@ -66,6 +67,8 @@ class ClubsList extends React.Component {
   };
 
   render = () => {
+    // console.log(this.findMovie())
+    // console.log(this.findPoster())
     let posterUrl = "https://image.tmdb.org/t/p/w780"
     const { clubs, activeClub } = this.state;
     return (

@@ -25,6 +25,8 @@ class JoinClubPage extends Component {
     let randomMovie = this.props.movies[Math.floor(Math.random() * this.props.movies.length)]
     console.log(randomMovie)
     if ( this.numberOfUsersInLastClub(this.props.clubs.length) === 6 && this.props.user.matched === null ) {
+      let randomMovie = this.props.movies[Math.floor(Math.random() * this.props.movies.length)]
+      console.log(randomMovie)
       fetch(`${API_ROOT}/clubs`, {
         method: 'POST',
         headers: HEADERS,
