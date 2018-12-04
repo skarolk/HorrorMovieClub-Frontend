@@ -22,7 +22,7 @@ class ClubsList extends React.Component {
   };
 
   handleClick = id => {
-    this.setState({ activeClub: id }, () => console.log(this.state.activeClub));
+    this.setState({ activeClub: id });
   };
 
   handleReceivedClub = response => {
@@ -86,7 +86,9 @@ class ClubsList extends React.Component {
         ) : null}
         {activeClub ? (
           <React.Fragment>
-            <h1 className="clubHeader">Your movie for this week is  {this.findMovieName()}!</h1>
+            <div className="clubHeader">
+              <h1>Your movie for this week is  {this.findMovieName()}!</h1>
+            </div>
             <img src={posterUrl + this.findPoster()} alt="" className="posterChatImage" />
             <ClubAvatars
               users={this.props.users}
@@ -106,10 +108,6 @@ class ClubsList extends React.Component {
             />
           </React.Fragment>
         ) : null}
-        <div className="clubList">
-          <p>{mapClubs(clubs, this.handleClick)}</p>
-          <NewClubForm />
-        </div>
       </div>
     );
   };

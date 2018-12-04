@@ -4,6 +4,7 @@ import withAuth from '../hocs/withAuth';
 import { NavLink } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import { fetchMovies, fetchUsers, fetchClubs } from '../actions';
+import { setUserClub } from '../actions/user';
 import UserIcon from './UserIcon';
 import { API_ROOT, HEADERS } from '../constants';
 
@@ -35,23 +36,9 @@ class JoinClubPage extends Component {
           active: true
         })
       });
-      fetch(`${API_ROOT}/users/${this.props.user.id}`, {
-        method: 'PATCH',
-        headers: HEADERS,
-        body: JSON.stringify({
-          club_id: this.props.clubs.length + 1,
-          matched: true
-        })
-      });
+      this.props.setUserClub(this.props.user.id, this.props.clubs.length + 1)
     } else if ( this.numberOfUsersInLastClub(this.props.clubs.length) < 6 && this.props.user.matched === null ) {
-      fetch(`${API_ROOT}/users/${this.props.user.id}`, {
-        method: 'PATCH',
-        headers: HEADERS,
-        body: JSON.stringify({
-          club_id: this.props.clubs.length,
-          matched: true
-        })
-      });
+      this.props.setUserClub(this.props.user.id, this.props.clubs.length)
     }
   }
 
@@ -83,4 +70,4 @@ const mapStateToProps = (reduxStoreState) => {
   };
 }
 
-export default withAuth(connect(mapStateToProps, { fetchMovies, fetchUsers, fetchClubs })(JoinClubPage));
+export default withAuth(connect(mapStateToProps, { fetchMovies, fetchUsers, fetchClubs, setUserClub })(JoinClubPage));

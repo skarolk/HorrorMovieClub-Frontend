@@ -194,8 +194,11 @@ code {
 }
 
 .clubHeader {
+  position: absolute;
+  width: 100%;
   text-align: center;
-  padding-top: 1.5%;
+  top: 1%;
+  padding-right: 5%;
   color: white;
 }
 
