@@ -21,7 +21,7 @@ const ChatArea = (props) => {
   return (
     <div className="chatWindow">
       <div className="messagesArea">
-        <div>{orderedMessages(props.club.messages)}</div>
+        <div>{props.club ? orderedMessages(props.club.messages) : null}</div>
       </div>
       <NewMessageForm user={props.user} club_id={props.club.id} />
     </div>

@@ -4,7 +4,10 @@ import { withRouter } from 'react-router';
 
 const UserIcon = (props) => {
   return (
-    <img src={ props.user ? props.user.image : null } alt="" className="userIcon" />
+    <div>
+      <img src={ props.user ? props.user.image : null } alt="" className="userIcon" />
+
+    </div>
   )
 }
 
@@ -15,3 +18,5 @@ const mapStateToProps = (reduxStoreState) => {
 }
 
 export default withRouter(connect(mapStateToProps)(UserIcon));
+
+// <div className="userLogout">Log out</div>

@@ -15,11 +15,12 @@ class ClubsList extends React.Component {
     activeClub: null
   };
 
-  componentDidMount = () => {
-    fetch(`${API_ROOT}/clubs`)
-      .then(res => res.json())
-      .then(clubs => this.setState({ clubs: clubs, activeClub: this.props.user.club_id }));
-  };
+  static getDerivedStateFromProps(props,state) {
+    return {
+      clubs: props.clubs,
+      activeClub: props.user.club_id
+    }
+  }
 
   handleClick = id => {
     this.setState({ activeClub: id });
@@ -44,9 +45,13 @@ class ClubsList extends React.Component {
 
   findMovie = () => {
     let targetClub = findActiveClub(this.state.clubs, this.props.user.club_id)
-    return this.props.movies.find(
-       movie => movie.id === targetClub.movie_id
-    )
+    if (targetClub) {
+      return this.props.movies.find(
+         movie => movie.id === targetClub.movie_id
+      )
+    } else {
+      return []
+    }
   }
 
   findMovieName = () => {
@@ -70,6 +75,14 @@ class ClubsList extends React.Component {
     // console.log(this.findPoster())
     let posterUrl = "https://image.tmdb.org/t/p/w780"
     const { clubs, activeClub } = this.state;
+    const club = findActiveClub(
+      clubs,
+      activeClub
+    )
+
+    console.log("Club id is", this.state.activeClub)
+    console.log("Clubs are", this.state.clubs)
+    console.log("Club is", club)
     return (
       <div>
         <UserIcon />
@@ -83,7 +96,7 @@ class ClubsList extends React.Component {
             handleReceivedMessage={this.handleReceivedMessage}
           />
         ) : null}
-        {activeClub ? (
+        {activeClub && this.props.user.username !== undefined ? (
           <React.Fragment>
             <div className="clubHeader">
               <h1>Your movie for this week is  {this.findMovieName()}!</h1>
@@ -97,14 +110,13 @@ class ClubsList extends React.Component {
                 activeClub
               )}
             />
-            <ChatArea
+
+            {club && this.state.clubs.length > 0 ? <ChatArea
               users={this.props.users}
               user={this.props.user}
-              club={findActiveClub(
-                clubs,
-                activeClub
-              )}
-            />
+              club={club}
+            /> : null}
+
           </React.Fragment>
         ) : null}
       </div>
@@ -118,21 +130,12 @@ const findActiveClub = (clubs, activeClub) => {
   );
 };
 
-// const mapClubs = (clubs, handleClick) => {
-//   return clubs.map(club => {
-//     return (
-//       <li key={club.id} onClick={() => handleClick(club.id)}>
-//         {club.id}
-//       </li>
-//     );
-//   });
-// };
-
 const mapStateToProps = (reduxStoreState) => {
   return {
     movies: reduxStoreState.movies,
     user: reduxStoreState.userReducer.user,
-    users: reduxStoreState.users
+    users: reduxStoreState.users,
+    clubs: reduxStoreState.clubs
   };
 }
 
