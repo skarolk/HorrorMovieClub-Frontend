@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { ActionCable } from 'react-actioncable-provider';
-// import { API_ROOT } from '../constants';
-// import NewClubForm from './NewClubForm';
 import ChatArea from './ChatArea';
 import Cable from './Cable';
 import ClubAvatars from './ClubAvatars';
