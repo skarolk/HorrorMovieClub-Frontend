@@ -34,18 +34,8 @@ class MovieList extends Component {
     let posterUrl = "https://image.tmdb.org/t/p/w780"
     // let posterUrlSmall = "https://image.tmdb.org/t/p/w500"
     return (
-      <div key={movie.id} className="movieContainer">
-        <div className="ratingCard" >
-          <h2>{movie.name}</h2>
-          <div>
-            <img src={posterUrl + movie.poster} alt="" className="posterImage" />
-          </div>
-          <div className="likeDislikeButtons">
-            <button className="ui button primary" onClick={() => this.rate(movie, this.props.user.id, true)}>
-              Like
-            </button>
-          </div>
-        </div>
+      <div key={movie.id} className="movieContainer" onClick={() => this.rate(movie, this.props.user.id, true)}>
+        <img src={posterUrl + movie.poster} alt="" className="posterImage" />
       </div>
     )
   }
