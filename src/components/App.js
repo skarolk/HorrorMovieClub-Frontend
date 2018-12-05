@@ -9,10 +9,14 @@ import SelectAvatar from './AvatarSelection';
 import NotFound from './NotFound';
 import JoinClubPage from './JoinClubPage';
 import ClubsList from './ClubsList';
+import BackgroundVideo from './BackgroundVideo'
 
 const App = (props) => {
   return (
     <React.Fragment>
+      <div className="fullscreen-bg">
+        <BackgroundVideo />
+      </div>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/ratings" component={MovieList} />
