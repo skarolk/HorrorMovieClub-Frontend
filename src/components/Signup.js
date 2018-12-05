@@ -57,8 +57,8 @@ class SignupForm extends React.Component {
           </Form>
         </div>
         <div className="signupLoginLink">
-          <NavLink to={'/login'} >
-            <h4>Already have an account? Login.</h4>
+          <NavLink to={'/login'} className="alreadyLogin" >
+            <h4>Already have an account? Click to login.</h4>
           </NavLink>
         </div>
       </React.Fragment>

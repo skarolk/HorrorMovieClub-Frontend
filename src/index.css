@@ -69,7 +69,7 @@ code {
   width: 90%;
   border: 3px;
   color: white;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0,0,0,.6);
   padding: 50px;
   padding-bottom: 60px;
 }
@@ -86,7 +86,7 @@ code {
   width: 90%;
   border: 3px;
   color: white;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0,0,0,.6);
   padding: 50px;
   padding-bottom: 60px;
 }
@@ -114,12 +114,21 @@ code {
 
 .signupLoginLink {
   text-align: center;
-  padding-top: 15%;
+  padding-top: 10%;
 }
 
 .loginButton {
   padding-top: 10%;
-  padding-left: 37px;
+  position:relative;
+  left: 32.5px;
+}
+
+.alreadyLogin {
+  color: white
+}
+
+.loginWindow {
+  background: rgba(0,0,0,.6);
 }
 
 .movieContainer {
@@ -146,16 +155,6 @@ code {
   padding-top: 5%;
   padding-bottom: 5%;
 }
-
-/* .navContainer {
-  max-width: 60px;
-  max-height: 100px;
-  background-color: red;
-  z-index: 10;
-  position: fixed;
-  top: 3%;
-  right: 5%;
-} */
 
 .userIcon {
   width: 60px;
