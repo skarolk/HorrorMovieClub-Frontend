@@ -45,7 +45,7 @@ class JoinClubPage extends Component {
           <NavLink to="/my-weekly-club">
             <div className="homeButton">
               {this.props.clubs.length > 0 && this.props.movies.length > 0 && this.props.users.length > 0 ?
-                <Button primary onClick={() => this.clubController()} type="submit">Join Club</Button> : null }
+                <Button primary onClick={() => this.clubController()} type="clubButton">Join Club</Button> : null }
             </div>
           </NavLink>
         </div>

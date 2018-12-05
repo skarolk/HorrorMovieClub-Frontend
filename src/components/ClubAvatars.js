@@ -11,7 +11,7 @@ const ClubAvatars = (props) => {
             { member.id !== props.user.id ?
               <div className="clubPageUsernames">
                 <img src={member.image} alt="" className="clubPageAvatars"/>
-                <div>{member.username}</div>
+                <div className="clubUsernames">{member.username}</div>
               </div> : null
             }
           </React.Fragment>
@@ -25,7 +25,7 @@ const ClubAvatars = (props) => {
       {renderAvatars()}
       <div className="clubPageUsernames">
         <img src={props.user.image} alt="" className="clubPageAvatars"/>
-        <div>{props.user.username}</div>
+        <div className="clubUsernames">{props.user.username}</div>
       </div>
     </div>
   );
