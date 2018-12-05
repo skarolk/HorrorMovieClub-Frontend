@@ -10,9 +10,42 @@ const SelectAvatar = (props) => {
       <div className="avatarsHeader">
         <h1>Select your avatar{ props.user ? ` ${props.user.username}` : null }!</h1>
       </div>
-      <div>
+      <div  className="avatarSelection">
         <NavLink to="/ratings" onClick={() => props.setUserAvatar(props.user.id, "https://i.imgur.com/BKjrLyu.jpg")}>
           <img src="https://i.imgur.com/BKjrLyu.jpg" alt="" className="avatars" />
+        </NavLink>
+        <NavLink to="/ratings" onClick={() => props.setUserAvatar(props.user.id, "https://i.imgur.com/6nSnrHi.jpg")}>
+          <img src="https://i.imgur.com/6nSnrHi.jpg" alt="" className="avatars" />
+        </NavLink>
+        <NavLink to="/ratings" onClick={() => props.setUserAvatar(props.user.id, "https://i.imgur.com/RTdi6B1.png")}>
+          <img src="https://i.imgur.com/RTdi6B1.png" alt="" className="avatars" />
+        </NavLink>
+        <NavLink to="/ratings" onClick={() => props.setUserAvatar(props.user.id, "https://i.imgur.com/lVjf1Yx.jpg")}>
+          <img src="https://i.imgur.com/lVjf1Yx.jpg" alt="" className="avatars" />
+        </NavLink>
+        <NavLink to="/ratings" onClick={() => props.setUserAvatar(props.user.id, "https://i.imgur.com/BKjrLyu.jpg")}>
+          <img src="https://i.imgur.com/BKjrLyu.jpg" alt="" className="avatars" />
+        </NavLink>
+        <NavLink to="/ratings" onClick={() => props.setUserAvatar(props.user.id, "https://i.imgur.com/6nSnrHi.jpg")}>
+          <img src="https://i.imgur.com/6nSnrHi.jpg" alt="" className="avatars" />
+        </NavLink>
+        <NavLink to="/ratings" onClick={() => props.setUserAvatar(props.user.id, "https://i.imgur.com/RTdi6B1.png")}>
+          <img src="https://i.imgur.com/RTdi6B1.png" alt="" className="avatars" />
+        </NavLink>
+        <NavLink to="/ratings" onClick={() => props.setUserAvatar(props.user.id, "https://i.imgur.com/lVjf1Yx.jpg")}>
+          <img src="https://i.imgur.com/lVjf1Yx.jpg" alt="" className="avatars" />
+        </NavLink>
+        <NavLink to="/ratings" onClick={() => props.setUserAvatar(props.user.id, "https://i.imgur.com/BKjrLyu.jpg")}>
+          <img src="https://i.imgur.com/BKjrLyu.jpg" alt="" className="avatars" />
+        </NavLink>
+        <NavLink to="/ratings" onClick={() => props.setUserAvatar(props.user.id, "https://i.imgur.com/6nSnrHi.jpg")}>
+          <img src="https://i.imgur.com/6nSnrHi.jpg" alt="" className="avatars" />
+        </NavLink>
+        <NavLink to="/ratings" onClick={() => props.setUserAvatar(props.user.id, "https://i.imgur.com/RTdi6B1.png")}>
+          <img src="https://i.imgur.com/RTdi6B1.png" alt="" className="avatars" />
+        </NavLink>
+        <NavLink to="/ratings" onClick={() => props.setUserAvatar(props.user.id, "https://i.imgur.com/lVjf1Yx.jpg")}>
+          <img src="https://i.imgur.com/lVjf1Yx.jpg" alt="" className="avatars" />
         </NavLink>
         <NavLink to="/ratings" onClick={() => props.setUserAvatar(props.user.id, "https://i.imgur.com/6nSnrHi.jpg")}>
           <img src="https://i.imgur.com/6nSnrHi.jpg" alt="" className="avatars" />
