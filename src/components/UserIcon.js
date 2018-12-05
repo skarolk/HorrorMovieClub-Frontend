@@ -5,9 +5,11 @@ import { NavLink } from 'react-router-dom';
 
 const UserIcon = (props) => {
   return (
-    <div className="navContainter">
+    <div className="navContainer">
       <img src={ props.user ? props.user.image : null } alt="" className="userIcon" />
-      <NavLink to="/" onClick={() => logOut()}>Log out</NavLink>
+      <NavLink to="/" onClick={() => logOut()} className="signOutButton" >
+      <button className="actualButton">Logout</button>
+      </NavLink>
     </div>
   )
 }
