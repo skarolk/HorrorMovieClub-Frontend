@@ -21,7 +21,6 @@ export const createClub = (movie, user) => {
         throw response
       }
     })
-    // .then(response => console.log(response))
     .then(response => {
       console.log(response.club.id)
       dispatch({ type: 'CREATE_CLUB', payload: response.club })

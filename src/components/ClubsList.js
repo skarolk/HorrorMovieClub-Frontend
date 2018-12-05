@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { ActionCable } from 'react-actioncable-provider';
-import { API_ROOT } from '../constants';
+// import { API_ROOT } from '../constants';
 // import NewClubForm from './NewClubForm';
 import ChatArea from './ChatArea';
 import Cable from './Cable';
@@ -83,6 +83,7 @@ class ClubsList extends React.Component {
     console.log("Club id is", this.state.activeClub)
     console.log("Clubs are", this.state.clubs)
     console.log("Club is", club)
+    console.log("User club id is", this.props.user.club_id)
     return (
       <div>
         <UserIcon />
@@ -96,10 +97,10 @@ class ClubsList extends React.Component {
             handleReceivedMessage={this.handleReceivedMessage}
           />
         ) : null}
-        {activeClub && this.props.user.username !== undefined ? (
+        {activeClub && this.props.user.username !== undefined && this.props.user.club_id !== null ? (
           <React.Fragment>
             <div className="clubHeader">
-              <h1>Your movie for this week is  {this.findMovieName()}!</h1>
+              <h1>Your movie for this week is {this.findMovieName()}!</h1>
             </div>
             <img src={posterUrl + this.findPoster()} alt="" className="posterChatImage" />
             <ClubAvatars
@@ -110,7 +111,6 @@ class ClubsList extends React.Component {
                 activeClub
               )}
             />
-
             {club && this.state.clubs.length > 0 ? <ChatArea
               users={this.props.users}
               user={this.props.user}
