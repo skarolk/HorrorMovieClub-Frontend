@@ -178,7 +178,7 @@ code {
   z-index: 9;
   color: white;
   font-weight: bold;
-  background-color: rgba(0,0,0,.2);
+  background-color: rgba(0,0,0,0);
   border-radius: 50%;
 }
 
