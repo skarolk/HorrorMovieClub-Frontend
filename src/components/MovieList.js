@@ -76,7 +76,7 @@ class MovieList extends Component {
           <UserIcon />
         </div>
         <div>
-          {this.renderMovieList()}
+          {this.props.movies.length > 0 ? this.renderMovieList() : <h3 className="loadingMovie">Loading Movies For You to Rate...</h3>}
         </div>
         <div className="ratingFooter">
           <h3>{this.state.pagesCompleted + 1} of 5</h3>

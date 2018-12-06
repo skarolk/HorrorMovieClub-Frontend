@@ -336,4 +336,20 @@ code {
   width: 173px;
   border-radius: 10px;
   padding-bottom: 20px;
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.loadingMovie {
+  color:white;
+  font-weight:bold;
+  padding: 15px;
+  background-color: rgba(0,0,0,.6);
+  width: 300px;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  display: block;
+  margin: auto;
+  text-align: center;
 }
