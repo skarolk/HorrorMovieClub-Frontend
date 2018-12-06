@@ -62,6 +62,11 @@ class ClubsList extends React.Component {
     return targetMovie.poster
   };
 
+  findSynopsis = () => {
+    let targetMovie = this.findMovie()
+    return targetMovie.synopsis
+  }
+
   findActiveClub = (clubs, activeClub) => {
     return clubs.find(
       club => club.id === activeClub
@@ -101,6 +106,7 @@ class ClubsList extends React.Component {
               <h1>Your movie for this week is {this.findMovieName()}!</h1>
             </div>
             <img src={posterUrl + this.findPoster()} alt="" className="posterChatImage" />
+            <h2 className="synopsis">{this.findSynopsis()}</h2>
             <ClubAvatars
               users={this.props.users}
               user={this.props.user}

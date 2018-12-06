@@ -32,6 +32,28 @@ code {
   margin-top: 1%;
 }
 
+.synopsis {
+  z-index: 15;
+  color: white;
+  font-weight: bold;
+  max-width: 25%;
+  height: 75%;
+  position: absolute;
+  top: 10.5%;
+  left: 10.9%;
+  padding: 25px;
+  background-color: rgba(0,0,0,.8);
+  border-radius: 15px;
+  opacity: 0;
+  border-color: white;
+  border-style: solid;
+  border-width: 6px;
+}
+
+.synopsis:hover {
+  opacity: 1;
+}
+
 /* .ratingCard {
   text-align: center;
   color: white;
