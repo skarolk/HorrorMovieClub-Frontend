@@ -1,5 +1,6 @@
 import React from 'react';
 import { API_ROOT, HEADERS } from '../constants';
+import { Button } from 'semantic-ui-react';
 
 class NewMessageForm extends React.Component {
   state = {
@@ -18,28 +19,31 @@ class NewMessageForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
-    fetch(`${API_ROOT}/messages`, {
-      method: 'POST',
-      headers: HEADERS,
-      body: JSON.stringify(this.state)
-    });
-    this.setState({ text: '' });
+    if (this.state.text.length !== 0) {
+      fetch(`${API_ROOT}/messages`, {
+        method: 'POST',
+        headers: HEADERS,
+        body: JSON.stringify(this.state)
+      });
+      this.setState({ text: '' });
+    } else {
+      return null
+    }
   };
 
   render = () => {
     return (
-      <div className="newMessageForm">
-        <form onSubmit={this.handleSubmit}>
+      <form className="ui form" onSubmit={this.handleSubmit}>
+        <div className="messageSubmit">
           <input
             type="text"
             value={this.state.text}
             onChange={this.handleChange}
-            placeholder="Enter your message"
+            placeholder="Enter your message here ..."
           />
-          <input type="submit" />
-        </form>
-      </div>
+          <Button className="messageSubmitButton" primary type="submit">Submit</Button>
+        </div>
+      </form>
     );
   };
 }

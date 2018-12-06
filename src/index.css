@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  padding-left: 3%;
-  padding-right: 3%;
+  padding-left:9%;
+  padding-right:9%;
   /* background-color: #BABDC7; */
   /* background-color: rgba(255,255,255,0); */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -25,13 +25,11 @@ code {
 
 .posterChatImage {
   max-width: 35%;
-  max-height: 83.5%;
+  max-height: 80%;
   border-color: white;
   border-style: solid;
   border-width: 11px;
-  position: fixed;
-  left: 5%;
-  top: 12%;
+  margin-top: 1%;
 }
 
 /* .ratingCard {
@@ -48,7 +46,7 @@ code {
 
 .ratingFooter {
   text-align: center;
-  padding-top: 1%;
+  padding-top: 2%;
   color: white;
 }
 
@@ -143,9 +141,9 @@ code {
   max-width: 31.3%;
   min-width: 31.3%;
   margin: 1%;
-  padding-bottom: 2.5%;
-  padding-top: 1.5%;
-  background: rgba(0,0,0,.3);
+  padding-bottom: 3%;
+  padding-top: 3%;
+  background: rgba(0,0,0,.6);
   border-radius: 15px;
   text-align: center;
 }
@@ -229,20 +227,26 @@ code {
 }
 
 .chatWindow {
-  background-color: rgba(0,0,0,.6);
-  min-width: 50%;
-  max-height: 56.9%;
-  min-height: 56.9%;
+  background-color: rgba(0,0,0,.8);
+  /* min-width: 50%; */
+  /* max-height: 56.9%;
+  min-height: 56.9%; */
   position: fixed;
-  top: 23%;
-  right: 5%;
+  top: 30%;
+  right: 9.1%;
   padding: 25px;
   padding-left: 30px;
   border-radius: 20px;
+  width: 50%;
+  display:inline-block;
+  border-color: white;
+  border-style: solid;
+  border-width: 6px;
 }
 
 .messagesArea {
-  max-height: 470px;
+  margin-bottom: 1%;
+  height: 505px;
   overflow-y: auto;
   color: white;
   font-weight: bold;
@@ -251,8 +255,13 @@ code {
 .newMessageForm  {
   /* background-color: green; */
   position: relative;
+  width: 70%;
   top: 90%;
-  left: 35%;
+  left: -2%;
+}
+
+.messageSubmit {
+  display: flex;
 }
 
 .clubList {
@@ -263,10 +272,9 @@ code {
 }
 
 .clubHeader {
-  position: absolute;
   width: 100%;
   text-align: center;
-  top: 3%;
+  padding-top: 2%;
   padding-right: 5%;
   color: white;
 }
@@ -298,8 +306,8 @@ code {
   max-width: 55%;
   height: auto;
   position: fixed;
-  right:1.4%;
-  top: 10.5%;
+  right:5.5%;
+  top: 8%;
 }
 
 .fullscreen-bg {

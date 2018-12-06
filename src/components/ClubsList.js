@@ -83,7 +83,7 @@ class ClubsList extends React.Component {
     console.log("Club is", club)
     console.log("User club id is", this.props.user.club_id)
     return (
-      <div>
+      <React.Fragment>
         <UserIcon />
         <ActionCable
           channel={{ channel: 'ClubsChannel' }}
@@ -117,7 +117,7 @@ class ClubsList extends React.Component {
 
           </React.Fragment>
         ) : null}
-      </div>
+      </React.Fragment>
     );
   };
 }
