@@ -14,6 +14,7 @@ import BackgroundVideo from './BackgroundVideo'
 const App = (props) => {
   return (
     <React.Fragment>
+      <img className="logo" src="https://i.imgur.com/z1xJxY8.png" alt="" />
       <div className="fullscreen-bg">
         <BackgroundVideo />
       </div>
